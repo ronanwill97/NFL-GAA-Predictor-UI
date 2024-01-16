@@ -1,0 +1,127 @@
+
+/* styles for the divisions */
+.division {
+  margin-bottom: 5vh;
+}
+
+/* styles for the division heading */
+.division h2 {
+  margin: 0 0 10px 0;
+}
+
+/* styles for the fixture container */
+.fixture {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* styles for the team buttons */
+.fixture button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* styles for the draw button */
+.fixture button.draw {
+  background-color: #f44336;
+}
+
+/* hover styles for all buttons */
+.fixture button:hover {
+  background-color: #3e8e41;
+}
+
+/* styles for the selections list */
+.selections {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+/* styles for the selection item */
+.selections li {
+  margin-bottom: 5px;
+}
+
+.fixtures-container {
+  width: 100vw;
+  height: 66vh;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.division-container {
+  margin-bottom: 5px;
+}
+
+.fixture-container {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 33vw;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 12px;
+}
+.away-button,
+.home-button {
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  margin-right: 12px;
+  transition: background-color 0.2s ease-out;
+}
+
+.draw-button {
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  margin-right: 12px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.home-button.selected,
+.away-button.selected,
+.draw-button.selected {
+  background-color: #ff6600;
+}
+/* 
+@media (min-width: 768px) {
+  .fixture-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .button-container {
+    margin-top: 0;
+  }
+  .team-button {
+    padding: 12px 48px;
+    margin-right: 24px;
+  }
+  .draw-button {
+    padding: 12px 48px;
+    margin-right: 24px;
+  }
+} */

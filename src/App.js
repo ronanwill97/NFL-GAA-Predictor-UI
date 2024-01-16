@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Fixtures from "./screens/Fixtures";
+import {useState} from "react";
+
+import Form from "./screens/Form";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [formData, setFormData] = useState({responses: {}});
+    const [isCompleted, setIsCompleted] = useState(false)
+
+    if (isCompleted) {
+        return <Form formData={formData}/>
+    } else {
+        return <Fixtures formData={formData} setFormData={setFormData} setIsCompleted={setIsCompleted}/>
+    }
 }
 
 export default App;
