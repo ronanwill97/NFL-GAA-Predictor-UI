@@ -35,7 +35,7 @@ const CheckoutForm = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                url: `${process.env.NFL_SERVICE_URL}/payment`,
+                url: `gaa-nfl-predictions.azurewebsites.net/payment`,
                 body: JSON.stringify({payment_method_id: id}),
             });
             // Handle the response from your backend

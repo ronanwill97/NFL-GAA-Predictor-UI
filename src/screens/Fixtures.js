@@ -4,7 +4,7 @@ import axios from "axios";
 const Fixtures = (props) => {
     // Create a state to store the user's selections
     const [roundData, setRoundData] = useState(null);
-    const [round, setRound] = useState(1)
+    const round = 1
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -21,7 +21,7 @@ const Fixtures = (props) => {
     useEffect(() => {
         if (roundData === null) {
             axios({
-                "url": `${process.env.NFL_SERVICE_URL}/fixtures`, "params": {
+                "url": `gaa-nfl-predictions.azurewebsites.net/fixtures`, "params": {
                     "round": round
                 }
             }).then((response) => {
