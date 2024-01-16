@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
+import axios from 'axios';
 
 const Fixtures = (props) => {
     // Create a state to store the user's selections
