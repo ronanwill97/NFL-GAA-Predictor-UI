@@ -19,9 +19,11 @@ const Fixtures = (props) => {
     };
 
     useEffect(() => {
+
         if (roundData === null) {
+            console.log(process.env.REACT_APP_SERVICE_HOST_NAME)
             axios({
-                "url": `gaa-nfl-predictions.azurewebsites.net/fixtures`, "params": {
+                "url": process.env.REACT_APP_SERVICE_HOST_NAME + '/fixtures', "params": {
                     "round": round
                 }
             }).then((response) => {
