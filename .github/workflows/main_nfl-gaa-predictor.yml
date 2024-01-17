@@ -21,8 +21,10 @@ jobs:
         with:
           node-version: '19.x'
 
-      - name: npm install, build, and test
+      - name: npm clean,install, build, and test
         run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
           npm install
           npm run build
 
