@@ -45,6 +45,10 @@ jobs:
         with:
           name: node-app
 
+      - name: Clean wwwroot directory
+        run: |
+          az webapp run --resource-group nfl-test-rg --name gaa-nfl-predictions --command "rm -rf /home/site/wwwroot/*
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
