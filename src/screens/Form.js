@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 
 export default function Form(props) {
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(props.picks);
+        props.setName(name)
+        props.setPhoneNumber(phone)
+        props.setIsDetailsEntered(true);
     }
     return (
         <form onSubmit={handleSubmit} style={{
@@ -19,13 +19,10 @@ export default function Form(props) {
             height: '80vh'
         }}>
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)}/>
-
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="text" id="name" value={name} required onChange={(e) => setName(e.target.value)}/>
 
             <label htmlFor="phone">Phone:</label>
-            <input type="text" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+            <input type="text" id="phone" value={phone} required onChange={(e) => setPhone(e.target.value)}/>
             <button type="submit" style={{
                 marginTop: '1rem',
                 padding: '0.5rem 1rem',
