@@ -31,7 +31,7 @@ function App() {
                 }).then(r => console.log(r))
             } else if (isCompleted && isDetailsEntered && leaderboardData === null) {
                 axios({
-                    "url": apiUrl + '/api/tally-responses', "params": {
+                    "url": `${apiUrl}/api/tally-responses`, "params": {
                         "round": round, "year": year
                     }
                 }).then((response) => {
@@ -44,7 +44,8 @@ function App() {
     if (!isDetailsEntered) {
         return <Form setPhoneNumber={setPhoneNumber} setName={setName} setIsDetailsEntered={setIsDetailsEntered}/>
     } else if (!isCompleted) {
-        return <Fixtures responses={responses} setIsCompleted={setIsCompleted} setResponses={setResponses} round={round}
+        return <Fixtures apiUrl={apiUrl} responses={responses} setIsCompleted={setIsCompleted}
+                         setResponses={setResponses} round={round}
                          year={year}/>
     }
     if (isCompleted && isDetailsEntered && leaderboardData != null) {

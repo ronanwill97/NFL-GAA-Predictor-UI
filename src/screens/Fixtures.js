@@ -23,8 +23,9 @@ const Fixtures = (props) => {
     useEffect(() => {
 
         if (roundData === null) {
+            console.log(props.apiUrl)
             axios({
-                "url": process.env.REACT_APP_SERVICE_HOST_NAME + '/api/get-fixtures', "params": {
+                "url": `${props.apiUrl}/api/get-fixtures`, "params": {
                     "round": round,
                     "year": year
                 }
