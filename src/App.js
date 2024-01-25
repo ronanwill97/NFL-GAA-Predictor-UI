@@ -17,19 +17,21 @@ function App() {
     const [isCompleted, setIsCompleted] = useState(false)
     const [leaderboardData, setLeaderboardData] = useState(null);
 
+    const apiUrl = process.env.REACT_APP_SERVICE_HOST_NAME
+
 
     useEffect(() => {
             if (isCompleted) {
-                axios.post(process.env.REACT_APP_SERVICE_HOST_NAME + '/api/responses', {
+                axios.post(apiUrl + '/api/responses', {
                     name,
                     phoneNumber,
                     responses,
                     round,
                     year
                 }).then(r => console.log(r))
-            } else if (leaderboardData === null) {
+            } else if (isCompleted && isDetailsEntered && leaderboardData === null) {
                 axios({
-                    "url": process.env.REACT_APP_SERVICE_HOST_NAME + '/api/tally-responses', "oarams": {
+                    "url": apiUrl + '/api/tally-responses', "params": {
                         "round": round, "year": year
                     }
                 }).then((response) => {
@@ -45,7 +47,7 @@ function App() {
         return <Fixtures responses={responses} setIsCompleted={setIsCompleted} setResponses={setResponses} round={round}
                          year={year}/>
     }
-    if (isCompleted && isDetailsEntered) {
+    if (isCompleted && isDetailsEntered && leaderboardData != null) {
         return <Leaderboard data={leaderboardData}/>
     }
 }
