@@ -33,7 +33,7 @@ const Fixtures = (props) => {
                 setRoundData(response.data)
             })
         }
-    }, [roundData, year, round])
+    }, [roundData, year, round, props.apiUrl])
     if (roundData == null || Object.keys(roundData).length === 0) {
         return null;
     } else {
