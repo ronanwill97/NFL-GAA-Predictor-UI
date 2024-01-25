@@ -39,7 +39,7 @@ function App() {
                 })
             }
         },
-        [isCompleted, name, phoneNumber, responses, leaderboardData]);
+        [isCompleted, name, phoneNumber, responses, leaderboardData, apiUrl, isDetailsEntered]);
 
     if (!isDetailsEntered) {
         return <Form setPhoneNumber={setPhoneNumber} setName={setName} setIsDetailsEntered={setIsDetailsEntered}/>
