@@ -17,7 +17,7 @@ function App() {
     const [isCompleted, setIsCompleted] = useState(false)
     const [leaderboardData, setLeaderboardData] = useState(null);
 
-    const apiUrl = process.env.APPSETTING_DJANGO_SERVICE_HOST_NAME
+    const apiUrl = process.env['APPSETTING_DJANGO_SERVICE_HOST_NAME']
 
 
     useEffect(() => {
