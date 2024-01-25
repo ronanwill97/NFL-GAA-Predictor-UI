@@ -15,7 +15,6 @@ function App() {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [isDetailsEntered, setIsDetailsEntered] = useState(false)
     const [isCompleted, setIsCompleted] = useState(false)
-    const [leaderboardData, setLeaderboardData] = useState(null);
 
     const apiUrl = process.env['REACT_APP_API_URL']
 
@@ -30,18 +29,8 @@ function App() {
                     year
                 }).then(r => console.log(r))
             }
-
-            if (isCompleted && isDetailsEntered && leaderboardData === null) {
-                axios({
-                    "url": `${apiUrl}/api/tally-responses`, "params": {
-                        "round": round, "year": year
-                    }
-                }).then((response) => {
-                    setLeaderboardData(response.data)
-                })
-            }
         },
-        [isCompleted, name, phoneNumber, responses, leaderboardData, apiUrl, isDetailsEntered]);
+        [isCompleted, name, phoneNumber, responses, apiUrl]);
 
     if (!isDetailsEntered) {
         return <Form setPhoneNumber={setPhoneNumber} setName={setName} setIsDetailsEntered={setIsDetailsEntered}/>
@@ -50,8 +39,8 @@ function App() {
                          setResponses={setResponses} round={round}
                          year={year}/>
     }
-    if (isCompleted && isDetailsEntered && leaderboardData != null) {
-        return <Leaderboard data={leaderboardData}/>
+    if (isCompleted && isDetailsEntered) {
+        return <Leaderboard year={year} round={round} apiUrl={apiUrl}/>
     }
 }
 
