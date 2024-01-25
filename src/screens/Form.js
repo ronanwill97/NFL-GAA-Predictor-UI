@@ -6,6 +6,12 @@ export default function Form(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        for (const key in process.env) {
+            if (process.env.hasOwnProperty(key)) {
+                console.log(`${key}: ${process.env[key]}`)
+            }
+        }
         props.setName(name)
         props.setPhoneNumber(phone)
         props.setIsDetailsEntered(true);
