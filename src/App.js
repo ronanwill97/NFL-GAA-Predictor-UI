@@ -29,7 +29,9 @@ function App() {
                     round,
                     year
                 }).then(r => console.log(r))
-            } else if (isCompleted && isDetailsEntered && leaderboardData === null) {
+            }
+
+            if (isCompleted && isDetailsEntered && leaderboardData === null) {
                 axios({
                     "url": `${apiUrl}/api/tally-responses`, "params": {
                         "round": round, "year": year
