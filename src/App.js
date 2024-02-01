@@ -3,8 +3,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Form from "./screens/Form";
 import React from "react";
-import Leaderboard from "./screens/Leaderboard";
-
 
 function App() {
     const [responses, setResponses] = useState({})
