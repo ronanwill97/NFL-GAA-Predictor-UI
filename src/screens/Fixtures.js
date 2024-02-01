@@ -4,9 +4,7 @@ import axios from 'axios';
 const Fixtures = (props) => {
     // Create a state to store the user's selections
     const [roundData, setRoundData] = useState(null);
-
-    const round = props.round
-    const year = props.year
+    const [round, setRound] = useState(1)
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -24,16 +22,15 @@ const Fixtures = (props) => {
 
         if (roundData === null) {
             console.log(props.apiUrl)
-            axios({
-                "url": `${props.apiUrl}/api/get-fixtures`, "params": {
-                    "round": round,
-                    "year": year
+            axios(`${props.apiUrl}/api/get-fixtures`).then((response) => {
+                let roundKeys = Object.keys(response.data)
+                if (roundKeys.length > 0) {
+                    setRound(roundKeys[0])
+                    setRoundData(response.data[roundKeys[0]])
                 }
-            }).then((response) => {
-                setRoundData(response.data)
             })
         }
-    }, [roundData, year, round, props.apiUrl])
+    }, [roundData, props.apiUrl])
     if (roundData == null || Object.keys(roundData).length === 0) {
         return null;
     } else {

@@ -7,9 +7,6 @@ import Leaderboard from "./screens/Leaderboard";
 
 
 function App() {
-
-    const round = 1
-    const year = 2024
     const [responses, setResponses] = useState({})
     const [name, setName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
@@ -24,9 +21,7 @@ function App() {
                 axios.post(apiUrl + '/api/responses', {
                     name,
                     phoneNumber,
-                    responses,
-                    round,
-                    year
+                    responses
                 }).then(r => console.log(r))
             }
         },
@@ -36,12 +31,11 @@ function App() {
         return <Form setPhoneNumber={setPhoneNumber} setName={setName} setIsDetailsEntered={setIsDetailsEntered}/>
     } else if (!isCompleted) {
         return <Fixtures apiUrl={apiUrl} responses={responses} setIsCompleted={setIsCompleted}
-                         setResponses={setResponses} round={round}
-                         year={year}/>
+                         setResponses={setResponses}/>
     }
-    if (isCompleted && isDetailsEntered) {
-        return <Leaderboard year={year} round={round} apiUrl={apiUrl}/>
-    }
+    // if (isCompleted && isDetailsEntered) {
+    //     return <Leaderboard year={year} round={round} apiUrl={apiUrl}/>
+    // }
 }
 
 export default App;
